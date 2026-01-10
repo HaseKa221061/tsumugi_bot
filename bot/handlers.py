@@ -7,6 +7,8 @@ class MessageHandler:
     メッセージイベント処理を担当
     """
 
+    user_name: str
+
     def __init__(self, gemini_service: GeminiService):
         self.gemini_service = gemini_service
 
@@ -14,6 +16,17 @@ class MessageHandler:
         """
         Bot がメンションされた場合の応答処理
         """
+
+        # ユーザー名を取得
+        self.user_name = message.author.display_name
+
         user_text = message.content
-        reply = self.gemini_service.generate_reply(user_text)
+
+        prompt = f"""
+ユーザー名: {self.user_name}
+ユーザーの発言:
+{user_text}
+"""
+        
+        reply = self.gemini_service.generate_reply(prompt)
         await message.channel.send(reply)
