@@ -1,0 +1,4 @@
+.env
+venv/
+start.bat
+__pycache__/
