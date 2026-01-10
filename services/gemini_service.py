@@ -31,14 +31,17 @@ class GeminiService:
             error_message = str(e).lower()
             
             if "429" in error_message or "resource" in error_message or "quota" in error_message:
-                response = self.client.models.generate_content(
-                model="gemini-2.5-flash-lite",
-                contents=user_text,
-                config=GenerateContentConfig(
-                    system_instruction=TsumugiPersona.system_prompt
+                try:
+                    response = self.client.models.generate_content(
+                    model="gemini-2.5-flash-lite",
+                    contents=user_text,
+                    config=GenerateContentConfig(
+                        system_instruction=TsumugiPersona.system_prompt
+                        )
                     )
-                )
-                return response.text
+                    return f"{TsumugiPersona.tired_mode_prefix}{response.text}"
+                except Exception:
+                    return TsumugiPersona.exhausted_message
             
             else:
-                return f"ちょっと急に用事思い出しちゃった💦\n詳細: {str(e)}"
+                return f"{TsumugiPersona.error_message}\n詳細: {str(e)}"

@@ -22,8 +22,8 @@ class MessageHandler:
 
         user_text = message.content
 
+# ユーザー名: {self.user_name}　必要ならprompt内に入れる
         prompt = f"""
-ユーザー名: {self.user_name}
 ユーザーの発言:
 {user_text}
 """
