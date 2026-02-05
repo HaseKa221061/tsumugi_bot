@@ -1,7 +1,6 @@
 # bot/handlers.py
 
 from services.gemini_service import GeminiService
-from bot.ascii_art import PING_ART
 
 class MessageHandler:
     """
@@ -17,7 +16,7 @@ class MessageHandler:
         """
         pingコマンドの応答処理
         """
-                await message.channel.send(PING_ART)
+        await message.channel.send("TUMUPONG!")
 
     async def handle_mention(self, message):
         """
