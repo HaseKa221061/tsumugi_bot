@@ -22,8 +22,8 @@ class TsumugiBotClient(discord.Client):
         if message.author.bot:
             return
 
-        # tumupingコマンドに対応
-        if message.content.startswith("!tumuping"):
+        # pingコマンドに対応
+        if message.content.startswith("!ping"):
             await self.handler.handle_ping(message)
 
         # メンションされたら返信

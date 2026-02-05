@@ -16,7 +16,13 @@ class MessageHandler:
         """
         pingコマンドの応答処理
         """
-        await message.channel.send("TSUMUGI")
+        await message.channel.send("""
+ _____ _   _ __  __ _   _ ____   ___  _   _  ____ _
+|_   _| | | |  \/  | | | |  _ \ / _ \| \ | |/ ___| |
+  | | | | | | |\/| | | | | |_) | | | |  \| | |  _| |
+  | | | |_| | |  | | |_| |  __/| |_| | |\  | |_| |_|
+  |_|  \___/|_|  |_|\___/|_|    \___/|_| \_|\____(_)
+        """)
 
     async def handle_mention(self, message):
         """
