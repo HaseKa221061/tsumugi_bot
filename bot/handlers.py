@@ -12,6 +12,12 @@ class MessageHandler:
     def __init__(self, gemini_service: GeminiService):
         self.gemini_service = gemini_service
 
+    async def handle_ping(self, message):
+        """
+        pingコマンドの応答処理
+        """
+        await message.channel.send("TSUMUGI")
+
     async def handle_mention(self, message):
         """
         Bot がメンションされた場合の応答処理

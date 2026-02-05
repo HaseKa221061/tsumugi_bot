@@ -75,11 +75,11 @@ docker rm tsumugi-bot
 
 更新手順
 
-古いコンテナを消す: docker rm tsumugi-bot
+イメージを再ビルド: sudo docker build -t tsumugi-bot .
 
-イメージを再ビルド: docker build -t tsumugi-bot .
+古いコンテナを消す: sudo docker rm -f tsumugi-bot
 
-新しいコンテナを起動: docker run -d --name tsumugi-bot --env-file .env tsumugi-bot
+新しいコンテナを起動: sudo docker run -d --name tsumugi-bot --env-file .env tsumugi-bot
 
 ファイル構成
 
